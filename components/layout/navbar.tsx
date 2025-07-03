@@ -29,7 +29,7 @@ export function Navbar({ user }: NavbarProps) {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-6">
           <Link href="/" className="text-xl font-bold">
-            AI Journal
+            Mindz Root
           </Link>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="sm" asChild>

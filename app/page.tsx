@@ -16,7 +16,7 @@ export default async function HomePage() {
   } = await supabase.auth.getUser()
 
   if (!user) {
-    redirect("/auth")
+    redirect("/landing")
   }
 
   // Fetch user's entries with categories
