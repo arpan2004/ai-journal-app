@@ -42,46 +42,46 @@ export default async function HomePage() {
     <div className="min-h-screen bg-background">
       <Navbar user={user} />
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="space-y-8">
+      <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
+        <div className="space-y-6 sm:space-y-8">
           {/* Header */}
-          <div className="text-center space-y-4">
-            <div className="flex items-center justify-center space-x-2">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
               <Brain className="h-8 w-8 text-purple-500" />
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                 Your AI-Organized Journal
               </h1>
             </div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-xs sm:max-w-2xl mx-auto">
               Visualize your thoughts and ideas organized by AI into meaningful categories
             </p>
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Total Entries</CardTitle>
-                <FileText className="h-4 w-4 text-muted-foreground" /> {/* Use FileText component */}
+                <CardTitle className="text-xs sm:text-sm font-medium">Total Entries</CardTitle>
+                <FileText className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{entries?.length || 0}</div>
+                <div className="text-lg sm:text-2xl font-bold">{entries?.length || 0}</div>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Categories</CardTitle>
-                <Tag className="h-4 w-4 text-muted-foreground" /> {/* Use Tag component */}
+                <CardTitle className="text-xs sm:text-sm font-medium">Categories</CardTitle>
+                <Tag className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{categories?.length || 0}</div>
+                <div className="text-lg sm:text-2xl font-bold">{categories?.length || 0}</div>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Quick Action</CardTitle>
+                <CardTitle className="text-xs sm:text-sm font-medium">Quick Action</CardTitle>
                 <Plus className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -99,21 +99,25 @@ export default async function HomePage() {
           {entries && entries.length > 0 ? (
             <Card>
               <CardHeader>
-                <CardTitle>Your Journal Tree</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-base sm:text-lg">Your Journal Tree</CardTitle>
+                <CardDescription className="text-xs sm:text-base">
                   Interactive visualization of your entries organized by AI-generated categories
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <TreeVisualization entries={entries} categories={categories || []} userName={userName} />
+                <div className="w-full overflow-x-auto">
+                  <div className="min-w-[320px] sm:min-w-0">
+                    <TreeVisualization entries={entries} categories={categories || []} userName={userName} />
+                  </div>
+                </div>
               </CardContent>
             </Card>
           ) : (
             <Card>
-              <CardContent className="text-center py-12">
-                <Brain className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Start Your AI Journal Journey</h3>
-                <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+              <CardContent className="text-center py-8 sm:py-12">
+                <Brain className="h-12 w-12 sm:h-16 sm:w-16 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">Start Your AI Journal Journey</h3>
+                <p className="text-muted-foreground mb-6 max-w-xs sm:max-w-md mx-auto">
                   Create your first entry and watch as AI automatically organizes your thoughts into meaningful
                   categories.
                 </p>
