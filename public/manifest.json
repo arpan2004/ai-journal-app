@@ -1,0 +1,20 @@
+{
+  "name": "Mindz Root",
+  "short_name": "Mindz Root",
+  "description": "AI-powered journal app that organizes your thoughts and ideas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/mindzroot-logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "en"
+} 

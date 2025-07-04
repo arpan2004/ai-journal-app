@@ -2,26 +2,24 @@
 
 import { Button } from "@/components/ui/button"
 import { createClient } from "@/utils/supabase/client"
-import { useRouter } from "next/navigation"
 import type { User } from "@supabase/supabase-js"
 import { LogOut, Plus, Home, FileText } from "lucide-react"
 import Link from "next/link"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { useState } from "react"
+import Image from "next/image"
 
 interface NavbarProps {
   user: User | null
 }
 
 export function Navbar({ user }: NavbarProps) {
-  const router = useRouter()
   const supabase = createClient()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()
-    router.push("/auth")
-    router.refresh()
+    window.location.href = "/auth"
   }
 
   if (!user) return null
@@ -31,8 +29,17 @@ export function Navbar({ user }: NavbarProps) {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Left: Brand and Hamburger */}
         <div className="flex items-center space-x-4 sm:space-x-6">
-          <Link href="/" className="text-xl font-bold">
-            Mindz Root
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 relative">
+              <Image 
+                src="/mindzroot-logo.png" 
+                alt="Mindz Root Logo" 
+                width={32} 
+                height={32}
+                className="rounded-lg"
+              />
+            </div>
+            <span className="text-xl font-bold">Mindz Root</span>
           </Link>
           {/* Hamburger for mobile */}
           <button

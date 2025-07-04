@@ -7,9 +7,25 @@ import { Toaster } from "sonner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "AI Journal - Organize Your Thoughts",
-  description: "AI-powered journal app that automatically categorizes your entries",
-    generator: 'v0.dev'
+  title: "Mindz Root - AI-Powered Journal",
+  description: "Organize your thoughts and ideas with AI-powered categorization",
+  generator: 'v0.dev',
+  icons: {
+    icon: '/mindzroot-logo.png',
+    shortcut: '/mindzroot-logo.png',
+    apple: '/mindzroot-logo.png',
+  },
+  manifest: '/manifest.json',
+  openGraph: {
+    title: 'Mindz Root - AI-Powered Journal',
+    description: 'Organize your thoughts and ideas with AI-powered categorization',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mindz Root - AI-Powered Journal',
+    description: 'Organize your thoughts and ideas with AI-powered categorization',
+  },
 }
 
 export default function RootLayout({
@@ -19,6 +35,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/mindzroot-logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/mindzroot-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/mindzroot-logo.png" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
